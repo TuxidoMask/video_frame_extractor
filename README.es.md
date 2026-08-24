@@ -88,15 +88,18 @@ Se recomienda crear una carpeta independiente para almacenar y facilitar la iden
 Por ejemplo:
 
 ```text id="w8r5v4"
-Resultados/
+Capturas/
 ```
+![Archivos generados](assets/images/new_file.jpg)
+
+![Nombre de los archivos generados](assets/images/name_file.jpg)
 
 Esta carpeta puede utilizarse como ubicación de destino en el siguiente paso. El programa creará automáticamente dentro de ella una carpeta `frames`.
 
 Los fotogramas extraídos quedarán organizados de la siguiente manera:
 
 ```text id="m0xj9u"
-Resultados/
+Capturas/
 │
 ├── frames/
 │   ├── frame_0001.jpg
@@ -109,11 +112,7 @@ Resultados/
 
 Los archivos de los fotogramas generados utilizan una numeración consecutiva:
 
-![Nombre de los archivos generados](assets/images/name_file.jpg)
-
-Una vez que comienza la extracción, los fotogramas se almacenan dentro de la carpeta `frames`:
-
-![Archivos generados](assets/images/new_file.jpg)
+Una vez que comienza la extracción, los fotogramas se almacenan dentro de la carpeta `Capturas`:
 
 > **Recomendación:** utilizar una carpeta independiente para los resultados permite mantener organizados los fotogramas extraídos y los reportes de procesamiento, además de facilitar la identificación de los resultados correspondientes a cada sesión de procesamiento.
 
