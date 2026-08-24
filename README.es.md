@@ -81,7 +81,45 @@ Primero se muestra una ventana de selección de archivos donde se puede elegir u
 
 ---
 
-### 2. Seleccionar la carpeta de destino
+### 2. Crear una carpeta para los resultados
+
+Se recomienda crear una carpeta independiente para almacenar y facilitar la identificación de los resultados generados por el programa.
+
+Por ejemplo:
+
+```text id="w8r5v4"
+Resultados/
+```
+
+Esta carpeta puede utilizarse como ubicación de destino en el siguiente paso. El programa creará automáticamente dentro de ella una carpeta `frames`.
+
+Los fotogramas extraídos quedarán organizados de la siguiente manera:
+
+```text id="m0xj9u"
+Resultados/
+│
+├── frames/
+│   ├── frame_0001.jpg
+│   ├── frame_0002.jpg
+│   ├── frame_0003.jpg
+│   └── ...
+│
+└── reporte_frames_YYYYMMDD_HHMMSS.txt
+```
+
+Los archivos de los fotogramas generados utilizan una numeración consecutiva:
+
+![Nombre de los archivos generados](assets/images/name_file.jpg)
+
+Una vez que comienza la extracción, los fotogramas se almacenan dentro de la carpeta `frames`:
+
+![Archivos generados](assets/images/new_file.jpg)
+
+> **Recomendación:** utilizar una carpeta independiente para los resultados permite mantener organizados los fotogramas extraídos y los reportes de procesamiento, además de facilitar la identificación de los resultados correspondientes a cada sesión de procesamiento.
+
+---
+
+### 3. Seleccionar la carpeta de destino
 
 Después de seleccionar los vídeos, el programa solicita la carpeta donde se almacenarán los fotogramas extraídos.
 
@@ -91,7 +129,7 @@ Dentro de la ubicación seleccionada se creará automáticamente una carpeta `fr
 
 ---
 
-### 3. Configurar el intervalo de extracción
+### 4. Configurar el intervalo de extracción
 
 A continuación, el programa solicita cada cuántos segundos se desea extraer un fotograma.
 
@@ -119,7 +157,7 @@ Por ejemplo:
 
 ---
 
-### 4. Extracción de fotogramas
+### 5. Extracción de fotogramas
 
 Una vez completada la configuración, el programa comienza a procesar los vídeos seleccionados.
 
@@ -133,7 +171,7 @@ Los fotogramas generados se almacenan dentro de la carpeta `frames`.
 
 ---
 
-### 5. Procesamiento de varios vídeos
+### 6. Procesamiento de varios vídeos
 
 Es posible procesar varios vídeos durante una misma ejecución.
 
@@ -162,7 +200,7 @@ Esto evita que los fotogramas de diferentes vídeos sobrescriban los archivos an
 
 ---
 
-### 6. Información del procesamiento
+### 7. Información del procesamiento
 
 Mientras se procesan los vídeos, la consola muestra información sobre la operación actual.
 
@@ -177,7 +215,7 @@ Para cada vídeo, el programa obtiene:
 
 ---
 
-### 7. Reporte de procesamiento
+### 8. Reporte de procesamiento
 
 Una vez finalizado el procesamiento de todos los vídeos seleccionados, el programa genera automáticamente un reporte en formato `.txt` con un resumen de la operación.
 
