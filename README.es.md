@@ -398,10 +398,10 @@ Dependiendo del sistema operativo y de la distribución de Python utilizada, pue
 Ejecuta el script de Python desde el directorio del proyecto:
 
 ```bash
-python script.py
+python extraer_frames.py
 ```
 
-> Reemplaza `script.py` por el nombre real del archivo Python si es diferente.
+> Reemplaza `extraer_frames.py` por el nombre real del archivo Python si es diferente.
 
 El programa te guiará durante el proceso mediante ventanas gráficas.
 
@@ -475,7 +475,7 @@ video_frame_extractor/
 │       ├── start_script.jpg
 │       └── finish_script.jpg
 │
-├── script.py
+├── extraer_frames.py
 │
 ├── README.md
 ├── README.es.md
@@ -489,6 +489,6 @@ La carpeta `images` contiene las capturas de pantalla utilizadas en este README.
 
 ## 📄 Licencia
 
-Este proyecto actualmente no incluye una licencia específica.
+Este proyecto está distribuido bajo la **Licencia MIT**.
 
-Si se desea distribuir o reutilizar el proyecto públicamente, se recomienda agregar una licencia de código abierto adecuada.
+Puedes consultar el texto completo de la licencia en el archivo [`LICENSE`](LICENSE) incluido en este repositorio.
