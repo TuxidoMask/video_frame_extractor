@@ -1,4 +1,8 @@
 # 🎥 Video Frame Extractor
+[![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-4.x-blue?logo=opencv&logoColor=white)](https://opencv.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-TuxidoMask-black?logo=github)](https://github.com/TuxidoMask/video_frame_extractor)
 
 [🇪🇸 Español](README.es.md)
 
