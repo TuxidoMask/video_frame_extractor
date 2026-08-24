@@ -84,21 +84,25 @@ El programa permite seleccionar varios archivos para procesarlos durante una mis
 
 ---
 
-### 2. Seleccionar la carpeta de destino
+### 2. Crear una carpeta para los resultados
 
-Después de seleccionar los vídeos, el programa solicita la carpeta donde se almacenarán los resultados generados.
+Se recomienda crear una carpeta independiente para cada sesión de procesamiento. Esto permite mantener organizados los fotogramas y reportes generados por el programa y facilita identificar los resultados correspondientes a cada procesamiento.
 
-![Selección de carpeta de destino](assets/images/select_file.jpg)
-
-Se recomienda utilizar una carpeta independiente para cada sesión de procesamiento. Por ejemplo:
+Por ejemplo, se puede crear una carpeta llamada:
 
 ```text
 Capturas/
 ```
 
-Dentro de la ubicación seleccionada, el programa creará automáticamente una carpeta llamada `frames` para almacenar los fotogramas extraídos.
+![Crear carpeta para los resultados](assets/images/new_file.jpg)
 
-La estructura resultante será similar a:
+Una vez creada la carpeta, se puede asignar un nombre que permita identificar fácilmente la sesión o el conjunto de vídeos que se procesará.
+
+![Nombrar la carpeta de resultados](assets/images/name_file.jpg)
+
+Esta carpeta se utilizará posteriormente como ubicación de destino. El programa creará automáticamente dentro de ella una carpeta llamada `frames`, donde se almacenarán los fotogramas extraídos.
+
+La estructura resultante será similar a la siguiente:
 
 ```text
 Capturas/
@@ -112,13 +116,9 @@ Capturas/
 └── reporte_frames_YYYYMMDD_HHMMSS.txt
 ```
 
-![Archivos generados](assets/images/new_file.jpg)
+![Organización de los archivos generados](assets/images/result_frames.jpg)
 
-![Nombre de los archivos generados](assets/images/name_file.jpg)
-
-![Organización de archivos generados](assets/images/result_frames.jpg)
-
-Utilizar una carpeta independiente permite mantener organizados los fotogramas y reportes generados durante cada sesión de procesamiento.
+> **Recomendación:** utilizar una carpeta independiente para cada sesión de procesamiento permite mantener organizados los fotogramas extraídos y los reportes generados, además de facilitar la identificación de los resultados correspondientes a cada sesión.
 
 ---
 
