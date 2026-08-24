@@ -163,7 +163,7 @@ Una vez completada la configuración, el programa comienza a procesar los vídeo
 
 Cada fotograma extraído se guarda como un archivo `.jpg` utilizando una numeración consecutiva.
 
-![Nombre de los archivos generados](assets/images/name_file.jpg)
+![Nombre de los archivos generados](assets/images/start_script.jpg)
 
 Los fotogramas generados se almacenan dentro de la carpeta `frames`.
 
