@@ -1,118 +1,64 @@
-# Extractor de Fotogramas de Vídeo
+# 🎥 Video Frame Extractor
 
-Herramienta desarrollada en **Python** para extraer automáticamente fotogramas de uno o varios vídeos a intervalos de tiempo configurables.
+[🇺🇸 English](README.md)
 
-El programa está pensado como una **herramienta auxiliar para proyectos de visión artificial**, permitiendo convertir secuencias de vídeo en conjuntos de imágenes que posteriormente pueden utilizarse para tareas como la creación y preparación de conjuntos de datos (*datasets*).
+A Python tool for extracting frames from one or multiple videos at configurable time intervals.
 
-La herramienta permite seleccionar múltiples vídeos, establecer el intervalo de extracción, seleccionar una carpeta de destino y generar automáticamente un reporte con información sobre el procesamiento realizado.
-
----
-
-## Características
-
-- Selección de uno o varios vídeos mediante una interfaz gráfica.
-- Compatibilidad con formatos de vídeo comunes:
-  - `.mp4`
-  - `.avi`
-  - `.mov`
-  - `.mkv`
-  - `.webm`
-- Selección de la carpeta de destino mediante una interfaz gráfica.
-- Intervalo de extracción configurable.
-- Intervalo mínimo permitido de **0.5 segundos**.
-- Valor predeterminado de **2 segundos**.
-- Creación automática de una carpeta `frames`.
-- Extracción de fotogramas en formato `.jpg`.
-- Numeración consecutiva de los fotogramas.
-- Procesamiento de múltiples vídeos en una misma ejecución.
-- Evita sobrescribir los fotogramas obtenidos de vídeos anteriores durante la misma ejecución.
-- Obtención de información de cada vídeo:
-  - FPS
-  - Número total de fotogramas
-  - Duración
-  - Número de fotogramas extraídos
-- Generación automática de un reporte `.txt`.
-- Visualización del reporte al finalizar el procesamiento.
+This project was created as an **auxiliary tool for computer vision projects**, allowing video files to be converted into individual images that can later be reviewed, selected, labeled, and used to build image datasets.
 
 ---
 
-## Propósito
+## 🧠 What problem does it solve?
 
-La herramienta fue creada como apoyo para la **preparación de datos destinados a proyectos de visión artificial**.
+When working on computer vision projects, data is often collected and stored as video.
 
-En proyectos donde los datos de entrada se encuentran originalmente en formato de vídeo, puede ser necesario convertir estos vídeos en imágenes individuales para posteriormente realizar tareas como:
+However, many computer vision tasks require individual images rather than complete video files.
 
-- Clasificación de imágenes.
-- Detección de objetos.
-- Etiquetado de imágenes.
-- Creación de conjuntos de datos.
-- Entrenamiento y evaluación de modelos de visión artificial.
+For example:
 
-Por ejemplo, en un proyecto de **detección de baches mediante visión artificial**, los vídeos obtenidos durante recorridos por carretera pueden procesarse para obtener imágenes individuales que posteriormente puedan ser revisadas, seleccionadas y etiquetadas para formar parte de un conjunto de datos.
+```text
+🎥 Video
+   │
+   ▼
+Video Frame Extractor
+   │
+   ▼
+🖼️ 🖼️ 🖼️ 🖼️ 🖼️
+Individual frames
+```
 
-> **Importante:** esta herramienta únicamente se encarga de la extracción y organización básica de los fotogramas. No realiza detección, clasificación ni etiquetado automático de baches.
+This tool automates the extraction of individual frames from videos at a configurable time interval.
+
+It can be useful for preparing image data for:
+
+- Object detection
+- Image classification
+- Dataset creation
+- Computer vision research
+- Machine learning projects
+
+> **Note:** This tool only extracts and organizes video frames. It does not perform object detection, image classification, or automatic image labeling.
 
 ---
 
-## Requisitos
+## ✨ Features
 
-- **Python 3.13.13**
-- OpenCV
-- Tkinter
+- Select one or multiple videos.
+- Select the output directory.
+- Configure the frame extraction interval.
+- Minimum extraction interval of **0.5 seconds**.
+- Default extraction interval of **2 seconds**.
+- Automatically create a `frames` directory.
+- Extract frames in `.jpg` format.
+- Keep frame numbering consecutive across multiple videos.
+- Process multiple videos in a single execution.
+- Obtain basic information about each video.
+- Generate an automatic `.txt` processing report.
+- Display processing results in the console.
 
-### Instalar OpenCV
+### Supported video formats
 
-La principal dependencia externa del proyecto es OpenCV:
-
-```bash
-pip install opencv-python
-```
-
-`tkinter` normalmente viene incluido con las instalaciones de Python para Windows. En otros sistemas operativos puede ser necesario instalarlo por separado.
-
----
-
-## Instalación
-
-### 1. Clonar el repositorio
-
-```bash
-git clone https://github.com/USUARIO/REPOSITORIO.git
-```
-
-Reemplaza `USUARIO/REPOSITORIO` por la dirección correspondiente a este repositorio.
-
-### 2. Acceder al directorio del proyecto
-
-```bash
-cd REPOSITORIO
-```
-
-### 3. Instalar las dependencias
-
-```bash
-pip install opencv-python
-```
-
----
-
-## Uso
-
-Ejecuta el programa mediante:
-
-```bash
-python nombre_del_archivo.py
-```
-
-Al iniciar, el programa solicitará la información necesaria mediante ventanas gráficas.
-
-### 1. Seleccionar los vídeos
-
-Primero se mostrará una ventana para seleccionar uno o varios vídeos.
-
-Se pueden seleccionar múltiples archivos para procesarlos durante una misma ejecución.
-
-Formatos contemplados actualmente:
+The file selection interface currently supports:
 
 ```text
 .mp4
@@ -122,48 +68,142 @@ Formatos contemplados actualmente:
 .webm
 ```
 
-### 2. Seleccionar la carpeta de destino
-
-A continuación, se solicitará seleccionar la carpeta donde se almacenarán los resultados.
-
-El programa creará automáticamente dentro de ella una carpeta denominada:
-
-```text
-frames/
-```
-
-### 3. Configurar el intervalo de extracción
-
-Finalmente, se solicitará indicar cada cuántos segundos se desea extraer un fotograma.
-
-El valor predeterminado es:
-
-```text
-2.0 segundos
-```
-
-El valor mínimo permitido es:
-
-```text
-0.5 segundos
-```
-
-Por ejemplo:
-
-| Intervalo | Extracción aproximada |
-|---:|---|
-| `2.0 s` | 1 fotograma cada 2 segundos |
-| `1.0 s` | 1 fotograma cada segundo |
-| `0.5 s` | 1 fotograma cada medio segundo |
+> Actual compatibility may depend on the video's codec, encoding, and the OpenCV version installed on the system.
 
 ---
 
-## Estructura de los resultados
+## 📸 How It Works
 
-Después de procesar los vídeos, la carpeta seleccionada tendrá una estructura similar a:
+### 1. Select Videos
+
+The application first displays a file selection window where one or multiple videos can be selected.
+
+![Video selection](assets/images/select_video.jpg)
+
+---
+
+### 2. Select the Output Directory
+
+After selecting the videos, the application asks for the directory where the extracted frames will be stored.
+
+![Output directory selection](assets/images/select_file.jpg)
+
+A `frames` directory is automatically created inside the selected location.
+
+---
+
+### 3. Configure the Extraction Interval
+
+The application then asks how many seconds should pass between each extracted frame.
+
+![Extraction interval](assets/images/select_time_seconds.jpg)
+
+The default value is:
 
 ```text
-Carpeta seleccionada/
+2.0 seconds
+```
+
+The minimum allowed value is:
+
+```text
+0.5 seconds
+```
+
+For example:
+
+| Interval | Approximate extraction |
+|---:|---|
+| `2.0 s` | 1 frame every 2 seconds |
+| `1.0 s` | 1 frame every second |
+| `0.5 s` | 1 frame every half second |
+
+---
+
+### 4. Frame Extraction
+
+Once the configuration is complete, the program begins processing the selected videos.
+
+Each extracted frame is saved as a `.jpg` file using sequential numbering.
+
+![Generated file name](assets/images/name_file.jpg)
+
+The generated frames are stored inside the `frames` directory.
+
+![Generated files](assets/images/new_file.jpg)
+
+---
+
+### 5. Process Multiple Videos
+
+Multiple videos can be processed during the same execution.
+
+Frame numbering continues from one video to the next.
+
+For example, if the first video generates:
+
+```text
+frame_0001.jpg
+frame_0002.jpg
+...
+frame_0150.jpg
+```
+
+the next video will continue with:
+
+```text
+frame_0151.jpg
+frame_0152.jpg
+...
+```
+
+This prevents frames from different videos from overwriting each other during the same execution.
+
+![Processed files](assets/images/finish_file.jpg)
+
+---
+
+### 6. Processing Information
+
+While processing the videos, the console displays information about the current operation.
+
+![Processing started](assets/images/start_script.jpg)
+
+For each video, the program obtains:
+
+- FPS
+- Total number of frames
+- Duration
+- Number of extracted frames
+
+---
+
+### 7. Processing Report
+
+After all selected videos have been processed, the program generates a `.txt` report containing a summary of the operation.
+
+![Processing completed](assets/images/finish_script.jpg)
+
+The report includes:
+
+- Extraction interval
+- Video filename
+- FPS
+- Total number of frames
+- Video duration
+- Number of extracted frames
+- Total number of processed videos
+- Total number of extracted frames
+- Output directory
+
+---
+
+## 📂 Output Structure
+
+After processing, the selected directory will have a structure similar to:
+
+```text
+Selected folder/
 │
 ├── frames/
 │   ├── frame_0001.jpg
@@ -173,55 +213,30 @@ Carpeta seleccionada/
 │   ├── ...
 │   └── frame_XXXX.jpg
 │
-└── reporte_frames_20260824_112030.txt
+└── reporte_frames_YYYYMMDD_HHMMSS.txt
 ```
 
-Los fotogramas se almacenan en formato **JPG**.
+The extracted frames are stored inside the `frames` directory.
 
-La numeración de los fotogramas es consecutiva durante toda la ejecución del programa. Por ejemplo, si el primer vídeo genera 150 imágenes:
-
-```text
-frame_0001.jpg
-frame_0002.jpg
-...
-frame_0150.jpg
-```
-
-el siguiente vídeo comenzará con:
-
-```text
-frame_0151.jpg
-frame_0152.jpg
-...
-```
-
-Esto permite procesar varios vídeos sin sobrescribir los fotogramas obtenidos anteriormente durante la misma ejecución.
+The processing report is stored in the selected output directory.
 
 ---
 
-## Reporte de procesamiento
+## 📊 Processing Report
 
-Al finalizar el procesamiento, se genera automáticamente un archivo de texto cuyo nombre incluye la fecha y hora de generación:
+The generated report uses the following naming format:
 
 ```text
 reporte_frames_YYYYMMDD_HHMMSS.txt
 ```
 
-El reporte contiene información detallada sobre el procesamiento realizado.
+For example:
 
-Entre los datos registrados se encuentran:
+```text
+reporte_frames_20260824_112030.txt
+```
 
-- Intervalo de extracción utilizado.
-- Nombre de cada vídeo.
-- FPS.
-- Número total de fotogramas del vídeo.
-- Duración.
-- Número de fotogramas extraídos.
-- Número total de vídeos procesados.
-- Número total de fotogramas extraídos.
-- Ruta donde fueron almacenados los fotogramas.
-
-### Ejemplo
+A typical report looks like this:
 
 ```text
 =================================================================
@@ -233,7 +248,7 @@ Intervalo de extracción: 2.00 segundos
 -----------------------------------------------------------------
 Vídeo 1
 -----------------------------------------------------------------
-Archivo: ejemplo.mp4
+Archivo: example.mp4
 FPS: 60.77
 Fotogramas: 18231
 Duración: 300.02 segundos
@@ -255,140 +270,175 @@ C:\Videos\frames
 
 ---
 
-## Funcionamiento
+## 🧠 Computer Vision Use Case
 
-De forma general, el proceso realizado por la herramienta es:
+One of the intended uses of this tool is preparing image data for computer vision projects.
+
+For example, a road pothole detection project could use the following workflow:
 
 ```text
-Inicio
-  │
-  ▼
-Seleccionar uno o varios vídeos
-  │
-  ▼
-Seleccionar carpeta de destino
-  │
-  ▼
-Definir intervalo de extracción
-  │
-  ▼
-Crear carpeta "frames"
-  │
-  ▼
-Procesar cada vídeo
-  │
-  ├── Obtener FPS
-  ├── Obtener número de fotogramas
-  ├── Calcular duración
-  └── Extraer fotogramas
-  │
-  ▼
-Generar información del procesamiento
-  │
-  ▼
-Crear reporte TXT
-  │
-  ▼
-Mostrar resultados
-  │
-  ▼
-Fin
+🎥 Road Video
+      │
+      ▼
+Video Frame Extractor
+      │
+      ▼
+🖼️ Extracted Frames
+      │
+      ▼
+🔎 Image Selection
+      │
+      ▼
+🏷️ Image Annotation
+      │
+      ▼
+📊 Dataset
+      │
+      ▼
+🤖 Computer Vision Model
+```
+
+In a pothole detection project, the extracted frames can be manually reviewed to identify useful images containing potholes. These images can then be annotated and incorporated into a dataset for training a computer vision model.
+
+The tool itself does **not** perform pothole detection or image annotation.
+
+---
+
+## ⚙️ Requirements
+
+The project was **tested with Python 3.13.13**.
+
+You will need:
+
+- Python 3.13 or another compatible version
+- OpenCV
+- Tkinter
+
+### Python Version
+
+The version used during development and testing was:
+
+```text
+Python 3.13.13
+```
+
+> Compatibility with other Python versions has not been extensively tested and may depend on the versions of the installed libraries.
+
+---
+
+## 📦 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/TuxidoMask/video_frame_extractor.git
+cd video_frame_extractor
+```
+
+### 2. Install OpenCV
+
+Install the required external dependency:
+
+```bash
+pip install opencv-python
+```
+
+Tkinter is normally included with Python installations on Windows.
+
+Depending on your operating system, you may need to install Tkinter separately.
+
+---
+
+## ▶️ Usage
+
+Run the Python script from the project directory:
+
+```bash
+python script.py
+```
+
+> Replace `script.py` with the actual name of the Python file if it is different.
+
+The program will guide you through the process using graphical dialogs.
+
+---
+
+## 🔢 Frame Numbering
+
+Frames are numbered sequentially using the following format:
+
+```text
+frame_0001.jpg
+frame_0002.jpg
+frame_0003.jpg
+...
+```
+
+The numbering uses four digits and automatically continues throughout the entire execution.
+
+This means that when processing multiple videos, previously generated frame numbers are not reused.
+
+---
+
+## ⚠️ Compatibility and Limitations
+
+- The minimum extraction interval is `0.5 seconds`.
+- Frames are currently saved only as `.jpg`.
+- Video processing depends on OpenCV.
+- Actual video compatibility may vary depending on the codec and encoding.
+- A supported file extension does not necessarily guarantee that the video can be opened successfully.
+- Large or long videos may require significant storage space.
+- Temporal extraction may not always correspond exactly to the expected timestamp depending on the video's encoding and structure.
+- The project was tested with Python `3.13.13`, but other Python versions have not been extensively tested.
+- The tool is intended as an auxiliary utility rather than a complete video analysis system.
+
+If OpenCV cannot open a selected video, the program displays an error message and continues with the next selected video.
+
+---
+
+## 🔮 Possible Future Improvements
+
+Possible improvements for future versions include:
+
+- Improved compatibility with different video codecs.
+- Better extraction performance.
+- Additional output image formats.
+- Configurable image quality.
+- More detailed processing reports.
+- A more complete graphical interface.
+- Additional frame organization options.
+- Optional metadata associated with extracted frames.
+- Improved error handling.
+
+---
+
+## 📁 Project Structure
+
+The project currently follows a simple structure:
+
+```text
+video_frame_extractor/
+│
+├── assets/
+│   └── images/
+│       ├── select_video.jpg
+│       ├── select_file.jpg
+│       ├── select_time_seconds.jpg
+│       ├── name_file.jpg
+│       ├── new_file.jpg
+│       ├── finish_file.jpg
+│       ├── start_script.jpg
+│       └── finish_script.jpg
+│
+├── script.py
+│
+└── README.md
 ```
 
 ---
 
-## Tecnologías utilizadas
+## 📄 License
 
-| Tecnología | Uso |
-|---|---|
-| Python 3.13.13 | Lenguaje de programación |
-| OpenCV | Lectura y procesamiento de vídeos |
-| Tkinter | Interfaz gráfica |
-| `os` | Gestión de archivos y directorios |
-| `datetime` | Generación de marcas de tiempo para los reportes |
+This project does not currently include a specific license.
 
----
-
-## Compatibilidad
-
-El programa contempla actualmente los siguientes formatos:
-
-- MP4
-- AVI
-- MOV
-- MKV
-- WEBM
-
-Sin embargo, **la compatibilidad real puede depender del códec utilizado, la codificación del vídeo y de la versión de OpenCV instalada en el sistema**.
-
-Por este motivo, que un archivo tenga una de las extensiones anteriores no garantiza necesariamente que pueda ser procesado correctamente.
-
-Si un vídeo no puede ser abierto por OpenCV, el programa mostrará un mensaje indicando que no fue posible abrirlo y continuará con el siguiente vídeo seleccionado.
-
----
-
-## Consideraciones y limitaciones
-
-- El intervalo mínimo de extracción es de **0.5 segundos**.
-- Los fotogramas se almacenan en formato `.jpg`.
-- El programa depende de **OpenCV** para la lectura y procesamiento de los vídeos.
-- La compatibilidad con un vídeo puede depender de su códec, codificación y características internas.
-- El procesamiento de vídeos largos puede requerir una cantidad considerable de espacio de almacenamiento.
-- La extracción mediante posiciones temporales puede presentar pequeñas diferencias respecto al tiempo exacto esperado dependiendo del vídeo y de su codificación.
-- El programa está pensado principalmente como una herramienta auxiliar y no como un sistema completo de procesamiento o análisis de vídeo.
-- El comportamiento puede variar entre diferentes versiones de Python, OpenCV y sistemas operativos.
-
----
-
-## Ejemplo de aplicación en visión artificial
-
-Una posible aplicación consiste en utilizar vídeos obtenidos durante recorridos por carretera para generar imágenes que posteriormente puedan formar parte de un conjunto de datos.
-
-El flujo podría ser:
-
-```text
-Vídeo de carretera
-       │
-       ▼
-Extractor de fotogramas
-       │
-       ▼
-Imágenes individuales
-       │
-       ▼
-Selección de imágenes útiles
-       │
-       ▼
-Etiquetado
-       │
-       ▼
-Dataset
-       │
-       ▼
-Modelo de visión artificial
-```
-
-En un sistema destinado a la **detección de baches**, por ejemplo, los fotogramas extraídos podrían utilizarse como material inicial para identificar y etiquetar imágenes que contengan baches.
-
----
-
-## Estado del proyecto
-
-El proyecto se encuentra en desarrollo y puede recibir modificaciones o mejoras futuras.
-
-Entre las posibles mejoras se encuentran:
-
-- Mayor control sobre los parámetros de extracción.
-- Mejor manejo de diferentes códecs y formatos de vídeo.
-- Optimización del proceso de extracción.
-- Incorporación de una interfaz gráfica más completa.
-- Opciones adicionales para la organización de los fotogramas.
-- Incorporación de más información al reporte de procesamiento.
-
----
-
-## Licencia
-
-Este repositorio no incluye actualmente una licencia específica.
-
-Si el proyecto se distribuye públicamente, se recomienda definir una licencia de acuerdo con las necesidades del proyecto.
+If you intend to distribute or reuse the project publicly, consider adding an appropriate open-source license.
