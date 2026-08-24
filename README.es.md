@@ -109,6 +109,7 @@ Capturas/
 │
 └── reporte_frames_YYYYMMDD_HHMMSS.txt
 ```
+![Organización de archivos generados](assets/images/result_frames.jpg)
 
 Los archivos de los fotogramas generados utilizan una numeración consecutiva:
 
