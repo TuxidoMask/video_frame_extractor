@@ -1,4 +1,5 @@
 # 🎥 Extractor de Fotogramas de Vídeo
+
 [🇺🇸 English](README.md)
 
 Herramienta desarrollada en Python para extraer fotogramas de uno o varios vídeos en intervalos de tiempo configurables.
@@ -30,11 +31,11 @@ Esta herramienta automatiza la extracción de imágenes individuales a partir de
 
 Puede ser útil para preparar datos de imágenes destinados a:
 
-- Detección de objetos
-- Clasificación de imágenes
-- Creación de conjuntos de datos
-- Investigación en visión artificial
-- Proyectos de aprendizaje automático
+- Detección de objetos.
+- Clasificación de imágenes.
+- Creación de conjuntos de datos.
+- Investigación en visión artificial.
+- Proyectos de aprendizaje automático.
 
 > **Nota:** Esta herramienta únicamente extrae y organiza fotogramas de vídeo. No realiza detección de objetos, clasificación de imágenes ni etiquetado automático.
 
@@ -49,7 +50,7 @@ Puede ser útil para preparar datos de imágenes destinados a:
 - Intervalo predeterminado de **2 segundos**.
 - Creación automática de una carpeta `frames`.
 - Extracción de fotogramas en formato `.jpg`.
-- Numeración consecutiva de los fotogramas al procesar varios vídeos.
+- Numeración consecutiva de los fotogramas durante toda la ejecución.
 - Procesamiento de múltiples vídeos en una misma ejecución.
 - Obtención de información básica de cada vídeo.
 - Generación automática de un reporte de procesamiento en formato `.txt`.
@@ -79,26 +80,27 @@ Primero se muestra una ventana de selección de archivos donde se puede elegir u
 
 ![Selección de vídeos](assets/images/select_video.jpg)
 
+El programa permite seleccionar varios archivos para procesarlos durante una misma ejecución.
+
 ---
 
-### 2. Crear una carpeta para los resultados
+### 2. Seleccionar la carpeta de destino
 
-Se recomienda crear una carpeta independiente para almacenar y facilitar la identificación de los resultados generados por el programa.
+Después de seleccionar los vídeos, el programa solicita la carpeta donde se almacenarán los resultados generados.
 
-Por ejemplo:
+![Selección de carpeta de destino](assets/images/select_file.jpg)
 
-```text id="w8r5v4"
+Se recomienda utilizar una carpeta independiente para cada sesión de procesamiento. Por ejemplo:
+
+```text
 Capturas/
 ```
-![Archivos generados](assets/images/new_file.jpg)
 
-![Nombre de los archivos generados](assets/images/name_file.jpg)
+Dentro de la ubicación seleccionada, el programa creará automáticamente una carpeta llamada `frames` para almacenar los fotogramas extraídos.
 
-Esta carpeta puede utilizarse como ubicación de destino en el siguiente paso. El programa creará automáticamente dentro de ella una carpeta `frames`.
+La estructura resultante será similar a:
 
-Los fotogramas extraídos quedarán organizados de la siguiente manera:
-
-```text id="m0xj9u"
+```text
 Capturas/
 │
 ├── frames/
@@ -109,27 +111,18 @@ Capturas/
 │
 └── reporte_frames_YYYYMMDD_HHMMSS.txt
 ```
+
+![Archivos generados](assets/images/new_file.jpg)
+
+![Nombre de los archivos generados](assets/images/name_file.jpg)
+
 ![Organización de archivos generados](assets/images/result_frames.jpg)
 
-Los archivos de los fotogramas generados utilizan una numeración consecutiva:
-
-Una vez que comienza la extracción, los fotogramas se almacenan dentro de la carpeta `Capturas`:
-
-> **Recomendación:** utilizar una carpeta independiente para los resultados permite mantener organizados los fotogramas extraídos y los reportes de procesamiento, además de facilitar la identificación de los resultados correspondientes a cada sesión de procesamiento.
+Utilizar una carpeta independiente permite mantener organizados los fotogramas y reportes generados durante cada sesión de procesamiento.
 
 ---
 
-### 3. Seleccionar la carpeta de destino
-
-Después de seleccionar los vídeos, el programa solicita la carpeta donde se almacenarán los fotogramas extraídos.
-
-![Selección de carpeta de destino](assets/images/select_file.jpg)
-
-Dentro de la ubicación seleccionada se creará automáticamente una carpeta `frames`.
-
----
-
-### 4. Configurar el intervalo de extracción
+### 3. Configurar el intervalo de extracción
 
 A continuación, el programa solicita cada cuántos segundos se desea extraer un fotograma.
 
@@ -155,27 +148,36 @@ Por ejemplo:
 | `1.0 s` | 1 fotograma cada segundo |
 | `0.5 s` | 1 fotograma cada medio segundo |
 
+El intervalo debe ser un valor numérico igual o superior a `0.5` segundos.
+
 ---
 
-### 5. Extracción de fotogramas
+### 4. Extracción de fotogramas
 
 Una vez completada la configuración, el programa comienza a procesar los vídeos seleccionados.
 
-Cada fotograma extraído se guarda como un archivo `.jpg` utilizando una numeración consecutiva.
+Cada fotograma extraído se guarda en formato `.jpg` dentro de la carpeta `frames`.
 
-![Nombre de los archivos generados](assets/images/start_script.jpg)
+![Inicio del procesamiento](assets/images/start_script.jpg)
 
-Los fotogramas generados se almacenan dentro de la carpeta `frames`.
+Los archivos utilizan una numeración consecutiva:
 
-![Archivos generados](assets/images/new_file.jpg)
+```text
+frame_0001.jpg
+frame_0002.jpg
+frame_0003.jpg
+...
+```
+
+La numeración comienza en `0001` y continúa durante toda la ejecución del programa.
 
 ---
 
-### 6. Procesamiento de varios vídeos
+### 5. Procesamiento de varios vídeos
 
 Es posible procesar varios vídeos durante una misma ejecución.
 
-La numeración de los fotogramas continúa de un vídeo al siguiente.
+Cuando se procesan varios archivos, la numeración de los fotogramas continúa de un vídeo al siguiente.
 
 Por ejemplo, si el primer vídeo genera:
 
@@ -194,28 +196,30 @@ frame_0152.jpg
 ...
 ```
 
-Esto evita que los fotogramas de diferentes vídeos sobrescriban los archivos anteriores durante la misma ejecución.
+De esta manera, los fotogramas generados durante la misma ejecución mantienen una numeración única y se evita que los archivos de un vídeo sobrescriban los de otro.
 
 ![Archivos procesados](assets/images/finish_file.jpg)
 
 ---
 
-### 7. Información del procesamiento
+### 6. Información del procesamiento
 
 Mientras se procesan los vídeos, la consola muestra información sobre la operación actual.
 
 ![Inicio del procesamiento](assets/images/start_script.jpg)
 
-Para cada vídeo, el programa obtiene:
+Para cada vídeo, el programa obtiene información como:
 
-- FPS
-- Número total de fotogramas
-- Duración
-- Número de fotogramas extraídos
+- FPS.
+- Número total de fotogramas del vídeo.
+- Duración.
+- Número de fotogramas extraídos.
+
+Esta información permite conocer las características básicas del vídeo y los resultados obtenidos durante la extracción.
 
 ---
 
-### 8. Reporte de procesamiento
+### 7. Reporte de procesamiento
 
 Una vez finalizado el procesamiento de todos los vídeos seleccionados, el programa genera automáticamente un reporte en formato `.txt` con un resumen de la operación.
 
@@ -223,12 +227,12 @@ Una vez finalizado el procesamiento de todos los vídeos seleccionados, el progr
 
 El reporte incluye:
 
-- Intervalo de extracción.
+- Intervalo de extracción utilizado.
 - Nombre del archivo de vídeo.
 - FPS.
-- Número total de fotogramas.
+- Número total de fotogramas del vídeo.
 - Duración del vídeo.
-- Número de fotogramas extraídos.
+- Número de fotogramas extraídos del vídeo.
 - Número total de vídeos procesados.
 - Número total de fotogramas extraídos.
 - Carpeta de destino.
@@ -255,7 +259,7 @@ Carpeta seleccionada/
 
 Los fotogramas extraídos se almacenan dentro de la carpeta `frames`.
 
-El reporte de procesamiento se guarda en la carpeta de destino seleccionada.
+El reporte de procesamiento se guarda directamente en la carpeta de destino seleccionada.
 
 ---
 
@@ -285,18 +289,19 @@ Intervalo de extracción: 2.00 segundos
 -----------------------------------------------------------------
 Vídeo 1
 -----------------------------------------------------------------
+
 Archivo: ejemplo.mp4
 FPS: 60.77
 Fotogramas: 18231
 Duración: 300.02 segundos
-Frames extraídos: 151
+Fotogramas extraídos: 151
 
 =================================================================
 RESUMEN
 =================================================================
 
 Vídeos procesados: 1
-Total de fotogramas: 151
+Total de fotogramas extraídos: 151
 
 =================================================================
 RUTA DE GUARDADO
@@ -304,6 +309,8 @@ RUTA DE GUARDADO
 
 C:\Videos\frames
 ```
+
+En este reporte, **“Fotogramas”** corresponde al número total de fotogramas contenidos en el vídeo original, mientras que **“Fotogramas extraídos”** corresponde al número de imágenes generadas por el programa de acuerdo con el intervalo configurado.
 
 ---
 
@@ -347,7 +354,7 @@ El proyecto fue **probado con Python 3.13.13**.
 
 Se requiere:
 
-- Python 3.13 u otra versión compatible.
+- Python 3.13 o una versión compatible.
 - OpenCV.
 - Tkinter.
 
@@ -374,7 +381,7 @@ cd video_frame_extractor
 
 ### 2. Instalar OpenCV
 
-Instala la dependencia externa principal del proyecto:
+Instala la principal dependencia externa del proyecto:
 
 ```bash
 pip install opencv-python
@@ -382,7 +389,7 @@ pip install opencv-python
 
 Tkinter normalmente viene incluido con las instalaciones de Python en Windows.
 
-Dependiendo del sistema operativo, puede ser necesario instalar Tkinter por separado.
+Dependiendo del sistema operativo y de la distribución de Python utilizada, puede ser necesario instalar Tkinter por separado.
 
 ---
 
@@ -411,9 +418,9 @@ frame_0003.jpg
 ...
 ```
 
-La numeración utiliza cuatro dígitos y continúa durante toda la ejecución del programa.
+La numeración utiliza cuatro dígitos y comienza en `0001`.
 
-Esto significa que, al procesar varios vídeos, los números utilizados para los fotogramas anteriores no vuelven a utilizarse.
+Durante una misma ejecución, la numeración continúa entre todos los vídeos seleccionados. Por lo tanto, los fotogramas generados por un vídeo no reutilizan los números asignados a los fotogramas de vídeos anteriores.
 
 ---
 
@@ -463,13 +470,17 @@ video_frame_extractor/
 │       ├── select_time_seconds.jpg
 │       ├── name_file.jpg
 │       ├── new_file.jpg
+│       ├── result_frames.jpg
 │       ├── finish_file.jpg
 │       ├── start_script.jpg
 │       └── finish_script.jpg
 │
 ├── script.py
 │
-└── README.md
+├── README.md
+├── README.es.md
+│
+└── ...
 ```
 
 La carpeta `images` contiene las capturas de pantalla utilizadas en este README.
