@@ -1,0 +1,6 @@
+dataset/
+videos/
+__pycache__/
+*.pyc
+venv/
+.env
