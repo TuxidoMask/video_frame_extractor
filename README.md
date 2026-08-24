@@ -1,6 +1,5 @@
 # 🎥 Video Frame Extractor
-
-[🇺🇸 English](README.md)
+[🇲🇽 Español](README.es.md)
 
 A Python tool for extracting frames from one or multiple videos at configurable time intervals.
 

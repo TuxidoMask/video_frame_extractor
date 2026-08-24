@@ -1,6 +1,5 @@
 # 🎥 Extractor de Fotogramas de Vídeo
-
-[🇲🇽 Español](README.es.md)
+[🇺🇸 English](README.md)
 
 Herramienta desarrollada en Python para extraer fotogramas de uno o varios vídeos en intervalos de tiempo configurables.
 
